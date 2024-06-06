@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  fastapi:
+    container_name: api
+    image: fastapi_image
+    build: fastapi
+    ports:
+      - 80:80
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    build: mongodb
+    ports:
+      - 27017:27017
